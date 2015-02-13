@@ -4,7 +4,7 @@ fun(SourceFN) when is_list(SourceFN) ->
             fun(List, Transform) when is_list(List) ->
                     case lists:all(fun erlang:is_integer/1, List) of
                         true ->
-                            unicode:characters_to_binary(List);
+                            list_to_binary(List);
                         false ->
                             [Transform(V, Transform) || V <- List]
                     end;
